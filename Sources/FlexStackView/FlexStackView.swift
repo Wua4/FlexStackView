@@ -41,6 +41,8 @@ public class FlexStackView: UIStackView {
             if let presetItems = presetItemsinRow[row] {
                 let currentStack = UIStackView()
                 currentStack.axis = .horizontal
+                currentStack.distribution = .fill
+                currentStack.alignment = .fill
 
                 let num = index
                 for i in num..<(num + presetItems) {
@@ -51,6 +53,8 @@ public class FlexStackView: UIStackView {
             } else {
                 let currentStack = UIStackView()
                 currentStack.axis = .horizontal
+                currentStack.distribution = .fill
+                currentStack.alignment = .fill
 
                 let num = index
                 for i in num..<(num + defaultPerRow) {
