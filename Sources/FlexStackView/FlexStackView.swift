@@ -18,12 +18,12 @@ public class FlexStackView: UIStackView {
     // default number of items per row
     // will defer lower if content expands
     var views = [UIView]()
-    var defaultPerRow = 1
-    var isAdjustable = true
+    public var defaultPerRow = 1
+    public var isAdjustable = true
 
     // set preset for certain row
     // will defer lower if content expands
-    var presetItemsinRow = [Int: Int]()
+    public var presetItemsinRow = [Int: Int]()
 
     public func addView(_ view: UIView) {
         self.views.append(view)
