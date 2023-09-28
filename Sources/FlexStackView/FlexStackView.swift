@@ -46,8 +46,9 @@ public class FlexStackView: UIStackView {
 
     public func clearAllViews() {
         for subViews in self.arrangedSubviews {
-            self.removeArrangedSubview(subViews)
+            subViews.removeFromSuperview()
         }
+
         views = []
     }
 
