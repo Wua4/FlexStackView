@@ -2,13 +2,15 @@
 import UIKit
 #endif
 /*
-- [ ] Problem 1: Flexbox layout with SwiftUI
-    - Need a stackview that can automically adjust for space and content size
-
-    - [ ] Handle adjustable font, landscape, iPad
-    - [ ] Criteria:
-        - [ ] Max allowed per row
-        - [ ] Preset for individual row (e.g. 2 for first row, but 1 for else)
+ - [x] Problem 2: DynamicFont, Reasonable Dynamically Sized Font Library
+     - [ ] See if override UILabel allowed (Care for buttons/attributed text) - NO, TOO DANGEROUS
+         - [ ] Storyboard
+         - [ ] ViewController (titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+     - [x] Leave iPad alone
+     - [x] Ease of use prioritized
+         - [x] Init functions handle Observers
+         - [x] Handle storyboard button issue (Type:System/Style:Default) - CANT
+         - [x] Simple naming
 */
 
 
@@ -88,7 +90,9 @@ public class FlexStackView: UIStackView {
             for numItemsToTry in (1...numForRow).reversed() {
                 var itemsFit = true
 
-                if numItemsToTry != 1 {
+                // if adjustable turned on, if item to try in Row > 1
+                // confirm if each view will fit
+                if numItemsToTry != 1, isAdjustable {
                     for i in viewIndex..<(viewIndex + numItemsToTry) where i < views.count {
                         itemsFit = itemsFit && checkIfViewFits(width: width/CGFloat(numItemsToTry), views[i])
                     }
